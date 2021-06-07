@@ -1,0 +1,52 @@
+---
+layout: page
+jumbotron-title: ikf Institut
+jumbotron-text: Innovative Finanzberatungssoftware
+jumbotron-button: Erfahren Sie mehr!
+---
+
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4">
+  <h1 class="display-3">{{ page.jumbotron-title }}</h1>
+  <p class="lead">{{ page.jumbotron-text }}</p>
+  <!-- <a href="#" class="btn btn-primary btn-lg">{{ page.jumbotron-button }}</a> -->
+</header>
+
+<div class="row">
+  <div class="col-md-8 col-sm-12 my-4 align-middle">
+    Das ikf Institut entwickelt innovative Software zur Unterstützung der Finanzberatungsbranche. Prof. Dr. Stefan
+    May, Gesellschafter und wissenschaftlicher Leiter gibt eine Einführung in unsere Produkte:
+  </div>
+  <div class="col-md-4 col-sm-12 my-3">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0"
+        type="text/html" style="overflow:hidden;"
+        src=https://www.screencast.com/users/stefan.may/folders/Snagit/media/e6544876-8e11-4b36-ae8f-af8ded568930/embed
+        webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Page Features -->
+<div class="row text-center">
+  <div class="card-deck">
+    {% for product in site.products %}
+    {% if product.category == "products" %}
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{product.title}}</h4>
+      </div>
+      <div>
+
+        <img class="card-img" src="{{product.imgTeaser}}" alt="">
+        <p class="card-text">{{product.short-description}}</p>
+      </div>
+      <div class="card-footer">
+        <a href="{{site.baseurl}}{{product.permalink}}" class="btn btn-primary">Mehr erfahren <i
+            class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{% if page.screenshots %}
+<div id="screenshotCarousel" class="carousel slide" data-ride="carousel">
+    
+        <div class="carousel-inner">
+            {% for screen in page.screenshots%}
+          <div class="carousel-item {% if forloop.index0==0 %}active{% endif %}">
+            <img class="d-block w-100" src="{{screen.url}}" alt="{{screen.name}}">
+            <div class="text-center d-none d-md-block">
+                {% if screen.title!="" %}
+                    <h5>{{screen.title}}</h5>
+                    {% endif %}
+                    <p>{{screen.text}}</p>
+                  </div>
+          </div>
+          {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#screenshotCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Zurück</span>
+        </a>
+        <a class="carousel-control-next" href="#screenshotCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Vor</span>
+        </a>
+        
+        <ol class="carousel-indicators position-relative">
+          {% for screen in page.screenshots%}
+            <li data-target="#screenshotCarousel" data-slide-to="{{forloop.index0}}" class=" {% if forloop.index0==0 %}active{% endif %}"></li>
+          {% endfor %}
+          </ol>
+      </div>
+{% endif %}

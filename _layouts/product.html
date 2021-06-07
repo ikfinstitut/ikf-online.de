@@ -1,0 +1,26 @@
+---
+layout: base
+---
+
+<section class="features-icons">
+    <div class="container">
+        <section class="row">
+
+            <h1 class="col-md-12">
+                {{ page.title }}
+            </h1>
+            <article class="col-md-9">
+                {{ content }}
+            </article>
+            <aside class="col-md-3">
+                <h2>Downloads</h2>
+                <ul>
+                    {% for download in page.downloads %}
+                    <li><a href="{{ site.baseurl }}{{download.url}}">{{ download.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% assign videocount = page.videos.size %}
+            </aside>
+        </section>
+    </div>
+</section>
